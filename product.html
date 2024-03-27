@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Product Gallery</title>
+  <style>
+    /* CSS for styling the gallery */
+    .product-gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      grid-gap: 20px;
+    }
+    .product {
+      text-align: center;
+    }
+    .product img {
+      width: 250px;
+      height: 300px;
+    }
+    .row{
+        border: 3px solid black;
+        margin: 10px;
+        background-color: #222831;
+        border-radius: 6px;
+    }
+    #menu ul li a{
+        color: white;
+    }
+    #menu ul{
+        list-style: none;
+        margin: 0;
+    }
+    #menu ul li{
+        display: inline-block;
+        padding-right: 25px;
+        font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+
+<h2>Product Gallery</h2>
+<div class="row">
+    <div class="col-12" id="menu">
+       <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="feedback.html">Feedback</a></li>
+            <li><a href="product.html">Products</a></li>
+            <li><a href="contact_us.html">Contact Us</a></li>
+       </ul>
+    </div>
+</div>
+
+<!-- Product Gallery -->
+<div class="product-gallery">
+  <div class="product">
+    <img src="1.webp" alt="Product 1" height="400px" width="500px">
+    <button onclick="showDetails('सिक कबाब', '20 रुपये/सिक कबाब')">अधिक जानकारी के लिए यहाँ क्लिक करें</button>
+  </div>
+  <div class="product">
+    <img src="2.jpg" alt="Product 2" height="400px" width="400px">
+    <button onclick="showDetails('अंडे', '7 रुपये/अंडे')"> अधिक जानकारी के लिए यहाँ क्लिक करें</button>
+  </div>
+  <div class="product">
+    <img src="3.jpg" alt="Product 3" height="400px">
+    <button onclick="showDetails('बर्गर', '15 रुपये')">अधिक जानकारी के लिए यहाँ क्लिक करें</button>
+  </div>
+  <div class="product">
+    <img src="4.jpg" alt="Product 4" height="400px">
+    <button onclick="showDetails('मंचूरियन', 'half-10 रुपये , full-20 रुपये ')">अधिक जानकारी के लिए यहाँ क्लिक करें</button>
+  </div>
+  <div class="product">
+    <img src="5.jpg" alt="Product 5" height="400px">
+    <button onclick="showDetails('इडली', 'half-10 रुपये , full-20 रुपये')">अधिक जानकारी के लिए यहाँ क्लिक करें</button>
+  </div>
+  <div class="product">
+    <img src="6.jpg" alt="Product 6" height="400px">
+    <button onclick="showDetails('समोसा', 'half-10 रुपये , full-20 रुपये')">अधिक जानकारी के लिए यहाँ क्लिक करें</button>
+  </div>
+</div>
+
+<!-- Details Section -->
+<div id="details">
+  <!-- Product details will be displayed here -->
+</div>
+
+<script>
+  // Function to show product details
+  function showDetails(productName, price) {
+    var detailsDiv = document.getElementById("details");
+    detailsDiv.innerHTML = "<h3>" + productName + "</h3>" +
+                           "<p>Description: मूल्य  </p>" +
+                           "<p>Price: " + price + "</p>";
+    // Scroll to the details section
+    detailsDiv.scrollIntoView({ behavior: 'smooth' });
+  }
+</script>
+
+</body>
+</html>

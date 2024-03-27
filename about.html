@@ -1,0 +1,187 @@
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About</title>
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+        }
+        body{
+            background: rgb(88 172 200);
+        }
+        h1{
+            text-align: center;
+            margin-bottom: 20px;
+            margin-top: 15px;
+            position: relative;
+            color: azure;
+        }
+        h1::before {
+            content: '';
+            position: absolute;
+            width: 100px;
+            height: 5px;
+            background-color: crimson;
+            bottom: -10px;
+            left: 50%;
+            transform: translate(-50%);
+            animation: animate 3s linear infinite;
+        }
+        
+        @keyframes animate {
+            0% {
+                width: 100px;
+            }
+        
+            50% {
+                width: 300px;
+            }
+        
+            100% {
+                width: 100px;
+            }
+        
+        }
+        
+        .cointer{
+            box-sizing: border-box;
+            position: relative;
+            margin-top: 200px;
+            margin: auto;
+            width: 35%;
+            height: 450px;
+            box-shadow: 0 0  25px  rgb(45, 46, 46);
+            overflow: hidden;
+            margin-bottom: 30px;
+        }
+        .slide{
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            transition: 1s;
+        }
+        .btn{
+            text-align: center;
+            margin: 50px;
+            display: block;
+            height: 25px;
+            box-shadow: 0px.0px,3px white;
+            
+        }
+        .btn button{
+            font-size: 20px;
+            white-space: 5px;
+            
+        }
+        .xyz{
+            margin-left: 75px;
+            margin-right: 75px;
+            border: 3px solid black;
+            color: white;
+            background-color: rgb(35, 30, 30);
+        }
+        #duggu{
+            color: red;
+        }
+        .row{
+            border: 3px solid black;
+            margin: 10px;
+            background-color: #222831;
+            border-radius: 6px;
+        }
+        #menu ul li a{
+            color: white;
+        }
+        #menu ul{
+            list-style: none;
+            margin: 0;
+           
+        }
+        #menu ul li{
+            display: inline-block;
+            padding-right: 25px;
+            font-weight: bold;
+            
+        }
+    </style>
+</head>
+<body>
+     <h1>
+        About me
+     </h1>
+     <br>
+     <div class="row">
+        <div class="col-12" id="menu">
+           <ul>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="feedback.html">Feedback</a></li>
+                <li><a href="product.html">Products</a></li>
+                <li><a href="contact_us.html">Contact Us</a></li>
+           </ul>
+    
+        </div>
+    </div>
+    <div class="cointer">
+            <img src="img1.jpeg" height="900px" width="500px" class="slide" alt="img">
+            <img src="img2.jpeg"  height="900px" width="500px" class="slide" alt="img">
+            <img src="img3.jpeg"  height="900px" width="500px" class="slide" alt="img">
+            <img src="img4.jpeg" height="900px" width="500px" class="slide" alt="img">
+            <img src="img5.jpeg" height="900px" width="500px" class="slide" alt="img">
+    </div>
+    <div  class="xyz">
+        शहर के हलचल भरे केंद्र में पाक कला का एक रत्न है जिसे <b id="duggu"> Duggu Bhai </b>के ठिकाने के नाम से जाना जाता है। जैसे ही आप आमंत्रित प्रवेश द्वार से आगे बढ़ते हैं, आप तुरंत एक ऐसे माहौल में आच्छादित हो जाते हैं जो जादू के पीछे के आदमी - डुग्गु भाई के बारे में बहुत कुछ बताता है।
+
+        अपनी मुस्कान में संक्रामक गर्मजोशी और आंखों में चमक के साथ, डुग्गू भाई आतिथ्य की भावना का प्रतीक हैं। गैस्ट्रोनॉमी की दुनिया में उनकी यात्रा विनम्रतापूर्वक शुरू हुई, जो स्वादों के प्रति जुनून और उत्कृष्टता की निरंतर खोज में निहित थी। एक स्थानीय बाज़ार में एक मामूली फूड स्टॉल के रूप में जो शुरुआत हुई वह एक ऐसे साम्राज्य में बदल गई जिसे दूर-दूर तक खाने के शौकीन लोग सम्मान देते थे।
+    </div>
+    <div class="btn">
+            <button onclick="gopre()"></button>
+            <button onclick="gonext()"></button>
+    </div>
+    <script>
+        const slides=document.querySelectorAll(".slide");
+        var counter=0;
+
+        slides.forEach(
+            (slide,index)=>{
+                slide.style.left=`${index*100}%`;
+            }
+        )
+       
+        const slide_Img = () => {
+            slides.forEach(
+                (slide)=>{
+                    slide.style.transform =`translateX(-${counter*100}%)`;
+                    //transform: translate();
+
+                }
+            )
+        }
+        function gonext(){
+           // alert();
+            counter++;
+            if(counter>4){
+                counter=0;
+            }
+            slide_Img();
+
+        }
+        function gopre(){
+           // alert();
+            counter--;
+            if(counter<0){
+                counter=4;
+            }
+            slide_Img();
+
+        }
+        setInterval(gonext,3000);
+    </script>
+</body>
+</html>
+    
+</body>
+</html>
